@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SENAI TECH STORE | Termos de Compra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            background: linear-gradient(145deg, #f4f7fc 0%, #eef2f5 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+        }
+
+        /* container principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 4rem;
+        }
+
+        /* ===== HEADER / NAVEGAÇÃO ===== */
+        .top-bar {
+            background-color: #0a2b3e;
+            border-radius: 2rem;
+            padding: 0.6rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #7847ff, #7847ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-tech {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.3px;
+        }
+
+        .store-badge {
+            font-size: 0.75rem;
+            background: #7847ff;
+            color: #0a2b3e;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #f0f6fa;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.2s ease;
+            padding: 0.4rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #7847ff;
+            border-bottom-color: #7847ff;
+        }
+
+        /* ===== IMAGEM EM DESTAQUE (BANNER) ===== */
+        .hero-image {
+            width: 100%;
+            background: #d9e2e8;
+            border-radius: 2rem;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 320px;
+            transition: all 0.3s;
+        }
+
+        /* título principal + breadcrumb visual */
+        .page-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            border-left: 5px solid #f4f7fc;
+            padding-left: 1.2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: #0a2b3e;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header p {
+            font-size: 0.9rem;
+            color: #2c5368;
+            background: #eef2f5;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+        }
+
+        /* grade de termos e condições */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.6rem 1.8rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 22px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 30px -16px rgba(0, 0, 0, 0.15);
+            border-color: #ffe0b5;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .term-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e4a6e;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #7847ff;
+            padding-left: 0.75rem;
+        }
+
+        .term-card p {
+            color: #2d4a6e;
+            font-size: 0.95rem;
+            line-height: 1.45;
+            margin-top: 0.5rem;
+        }
+
+        .highlight-term {
+            background: #fffaf2;
+            border-bottom: 2px solid #ffe0b5;
+        }
+
+        /* seção de observações legais / nota */
+        .legal-note {
+            background: #e9f0f5;
+            border-radius: 1.5rem;
+            padding: 1.6rem 2rem;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-left: 5px solid #7847ff;
+        }
+
+        .legal-note p {
+            color: #1e3a4d;
+            font-weight: 500;
+        }
+
+        .btn-padrao {
+            background: #7847ff;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #0a2b3e;
+            transition: 0.2s;
+            cursor: default;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* footer simples */
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #cbdde6;
+            font-size: 0.8rem;
+            color: #2f607c;
+        }
+
+        /* responsividade */
+        @media (max-width: 780px) {
+            .container {
+                padding: 1rem 1.2rem 2rem;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: stretch;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 1.2rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .term-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* detalhe de texto para ícones simulados */
+        .small-badge {
+            background: #f1e9df;
+            display: inline-block;
+            border-radius: 20px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.6rem;
+            color: #b45f1b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Cabeçalho com navegação (Início, Produtos, Categorias, Contato) -->
+        <div class="top-bar">
+            <div class="logo-area">
+                <span class="logo">SENAI</span>
+                <span class="logo-tech">TECH STORE</span>
+                <span class="store-badge">✔️ oficial</span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Início</a>
+                <a href="#">Produtos</a>
+                <a href="#">Categorias</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+
+        <!-- Imagem principal / Banner da loja (imagem ilustrativa tech store) -->
+        <div class="hero-image">
+            <!-- SVG EMBUTIDO (imagem personalizada e moderna para representar loja de tecnologia) 
+             também poderia ser img externa, mas utilizamos svg inline garantindo imagem rica e visual -->
+            <svg viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg"
+                style="width:100%; height:auto; display:block;">
+                <defs>
+                    <linearGradient id="gradBanner" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#0a2b3e" />
+                        <stop offset="50%" stop-color="#144d6b" />
+                        <stop offset="100%" stop-color="#7847ff" />
+                    </linearGradient>
+                    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff20" />
+                        <stop offset="100%" stop-color="#00000030" />
+                    </linearGradient>
+                </defs>
+                <rect width="1200" height="320"
+                    fill="url(#https://copilot.microsoft.com/shares/iWNMG6jauC5zXMsNHQ7R1)" />
+                <circle cx="180" cy="150" r="45" fill="#FFD966" opacity="0.2" />
+                <circle cx="1000" cy="230" r="80" fill="#FFFFFF" opacity="0.08" />
+                <!-- ícones tech -->
+                <g transform="translate(90, 100)">
+                    <rect x="0" y="20" width="48" height="38" rx="8" fill="#2c3e50" />
+                    <rect x="8" y="28" width="32" height="6" rx="2" fill="#FFD966" />
+                    <circle cx="24" cy="48" r="5" fill="#e67e22" />
+                    <text x="10" y="75" fill="#FFD966" font-size="14" font-weight="bold">GPU</text>
+                </g>
+                <g transform="translate(260, 180)">
+                    <rect x="0" y="0" width="50" height="35" rx="6" fill="#144d6b" stroke="#FFD966"
+                        stroke-width="1.5" />
+                    <circle cx="25" cy="18" r="8" fill="#ff8c42" />
+                    <text x="10" y="52" fill="#FFFFFF" font-size="12" font-weight="bold">CPU</text>
+                </g>
+                <g transform="translate(800, 110)">
+                    <rect x="0" y="0" width="60" height="40" rx="10" fill="#1e272e" stroke="#FFD966" stroke-width="2" />
+                    <rect x="12" y="10" width="36" height="8" fill="#e67e22" />
+                    <rect x="12" y="24" width="36" height="6" fill="#FFD966" />
+                    <text x="8" y="60" fill="white" font-size="10">RAM</text>
+                </g>
+                <g transform="translate(580, 210)">
+                    <path d="M0,20 L25,0 L50,20 L25,40 Z" fill="#FFB347" opacity="0.9" />
+                    <text x="12" y="26" fill="#0a2b3e" font-size="12" font-weight="bold">⚡</text>
+                </g>
+                <text x="420" y="100" font-family="'Segoe UI', Roboto" font-weight="800" font-size="40" fill="#FFFFFF"
+                    letter-spacing="2">
+                    SENAI TECH STORE
+                </text>
+                <text x="440" y="145" font-family="'Segoe UI'" font-size="18" fill="#FFD966" font-weight="500">
+                    Inovação, Confiança e Performance
+                </text>
+                <text x="460" y="190" font-family="'Segoe UI'" font-size="13" fill="#f0f6fa" opacity="0.8">
+                    Os melhores termos e condições para sua segurança
+                </text>
+                <circle cx="1100" cy="280" r="30" fill="#FFD966" opacity="0.25" />
+                <text x="1090" y="315" fill="white" font-size="13" font-weight="bold">🔒</text>
+            </svg>
+        </div>
+
+        <!-- Seção Título principal Termos de Compra e breve resumo -->
+        <div class="page-header">
+            <h1>📜 Termos de Compra</h1>
+            
+        </div>
+
+        <!-- Condições gerais introdutórias (copiando descrição original) -->
+        <div
+            style="background: #ffffffd9; border-radius: 1.2rem; padding: 1rem 1.8rem; margin-bottom: 0.8rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+            <p style="color: #1f506f; font-weight: 500;">📌 <strong>Condições de Compra:</strong> Ao adquirir produtos
+                na SENAI TECH STORE, o cliente concorda automaticamente com os preços, prazos e condições estabelecidas
+                nesta página. Transparência e respeito ao Código de Defesa do Consumidor são prioridades.</p>
+        </div>
+
+        <!-- Grid de Termos (Trocas, Pagamentos, Entrega, Garantia etc) conforme conteúdo original -->
+        <div class="terms-grid">
+            <!-- Trocas e Devoluções (primeiro bloco) -->
+            <div class="term-card">
+                <div class="card-icon">🔄</div>
+                <h3>Trocas e Devoluções</h3>
+                <p>Trocas de produtos com defeito ou arrependimento seguem a legislação vigente. O prazo para devolução
+                    é de <strong>7 dias corridos</strong> (para compras realizadas fora da loja física).</p>
+                <p>✔️ Devoluções em até 7 dias para crédito em recibo, conforme a legalização estabelecida pelo CDC.
+                    Solicite o reembolso ou troca diretamente no portal.</p>
+                <span class="small-badge">+ info sobre troca regulamentada</span>
+            </div>
+
+            <!-- Pagamentos -->
+            <div class="term-card">
+                <div class="card-icon">💳</div>
+                <h3>Pagamentos</h3>
+                <p>Transações 100% seguras aceitamos <strong>débito, crédito parcelado, PIX e boleto</strong>. Todas as
+                    compras são protegidas com criptografia de ponta a ponta.</p>
+                <p>✅ Aceitamos condições para financiamento via cartão, com parcelamento em até 12x com juros reduzidos
+                    em parceria com a bandeira.</p>
+            </div>
+
+            <!-- Entrega -->
+            <div class="term-card">
+                <div class="card-icon">🚚</div>
+                <h3>Entrega</h3>
+                <p>Prazos variados conforme <strong>registro da localidade e modalidade escolhida</strong> (Expresso,
+                    Econômico ou retirada em loja). O prazo começa a contar após confirmação de pagamento.</p>
+                <p>📦 Entregamos para todo o território nacional. Acompanhamento em tempo real via código de rastreio.
+                </p>
+            </div>
+
+            <!-- Garantia (segundo texto original) -->
+            <div class="term-card">
+                <div class="card-icon">🛡️</div>
+                <h3>Garantia</h3>
+                <p>Obrigação de compra por um prazo de garantia <strong>mínimo de 90 dias para produtos novos</strong>,
+                    conforme exigido por lei. Produtos com garantia estendida opcional disponível no carrinho.</p>
+                <p>🔧 Assistência técnica autorizada e suporte especializado para todas as marcas ofertadas.</p>
+            </div>
+
+            <!-- Privacidade e Segurança -->
+            <div class="term-card">
+                <div class="card-icon">🔒</div>
+                <h3>Privacidade e Segurança</h3>
+                <p>Produtos com dados pessoais não são armazenados na página do item. Seus dados são protegidos pela
+                    LGPD.</p>
+                <p>✅ Garantimos que nenhuma informação bancária ou pessoal fica exposta; utilizamos tokenização e
+                    ambientes seguros.</p>
+            </div>
+
+            <!-- Segurança Imorano (Conforme original: "Segure Imorano" - mantivemos a essência: proteção de dados) -->
+            <div class="term-card">
+                <div class="card-icon">⚙️</div>
+                <h3>Segurança Avançada</h3>
+                <p>Proteção dos dados pessoais conforme nossa Política de Privacidade e Termos de Uso. Adotamos
+                    monitoramento contra fraudes 24/7 e auditoria independente.</p>
+                <p>🔐 Compromisso com a sua segurança digital — prevenção e conformidade (LGPD).</p>
+            </div>
+        </div>
+
+        <!-- Espaço extra para evidenciar a cláusula de "Trocas e Devoluções" duplicada no conteúdo original, unificamos mas incluímos resumo extra -->
+        <div
+            style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; background: #fef7e8; border-radius: 1.2rem; padding: 1rem 1.6rem; margin-bottom: 1rem;">
+            <div><strong>📋 Trocas em destaque:</strong> Conforme nossa política, devoluções em até 7 dias para crédito
+                recibo, confome a legalização em vigor. Basta solicitar na central.</div>
+            <div><strong>💡 Garantia estendida:</strong> Adquira proteção extra para seu equipamento por 12 meses
+                adicionais.</div>
+        </div>
+
+        <!-- Citação do artigo: "Produtos com dados pessoais não são armazenados na página do item." (privacidade) - já incluso -->
+        <!-- Adicionalmente incluímos a política de privacidade e segurança como reforço -->
+        <div class="legal-note">
+            <p>📢 <strong>Privacidade e Transparência:</strong> A SENAI TECH STORE está comprometida com a proteção dos
+                seus dados. Nenhuma informação sensível é armazenada em nossos servidores sem criptografia e
+                consentimento explícito. Conheça nossa política completa.</p>
+            <div class="btn-padrao">Política de Privacidade</div>
+        </div>
+
+        <!-- Seção extra com os detalhes originais do texto, para garantir fidelidade aos termos mencionados (Incluindo "Segure Imorano" adaptado como segurança avançada) -->
+        <div
+            style="margin-top: 2rem; background: #ffffffcc; border-radius: 1.8rem; padding: 1.2rem 1.8rem; font-size: 0.85rem; border: 1px solid #f1dec6;">
+            <h4 style="color:#a55117; margin-bottom: 0.6rem;">📄 Resumo das Condições Gerais (Leia na íntegra):</h4>
+            <ul style="margin-left: 1.4rem; color: #2f5f7a; display: flex; flex-direction: column; gap: 0.4rem;">
+                <li>✔️ <strong>Trocas e Devoluções:</strong> Trocas e produtos com o forno regido cobrem PIX e condição
+                    a legislação.</li>
+                <li>✔️ <strong>Pagamentos:</strong> Transações seguras aceitam débito, pós-condições parafinário.</li>
+                <li>✔️ <strong>Entrega:</strong> Prazos variados conforme registro e modalidade escolhida.</li>
+                <li>✔️ <strong>Garantia Legal:</strong> Obrigação de compra por um prazo de garantia conforme estipulado
+                    no CDC.</li>
+                <li>✔️ <strong>Segurança Imorano:</strong> Proteção dos dados pessoais conforme nossa Política de
+                    Privacidade e certificação digital.</li>
+                <li>✔️ <strong>Privacidade e Segurança:</strong> Dados pessoais não ficam expostos na página do item —
+                    confiança máxima.</li>
+            </ul>
+            <p style="margin-top: 0.9rem; font-size:0.8rem; color:#884a1f;">🔍 Ao finalizar a compra você concorda com
+                todos os termos dispostos acima e com eventuais atualizações.</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 SENAI TECH STORE — Inovação, responsabilidade e compromisso com o consumidor.</p>
+            <p style="margin-top: 0.5rem;">📞 Central de Atendimento (11) 4000-1234 | E-mail:
+                suporte@senai-techstore.com.br</p>
+            <p style="font-size: 0.7rem; opacity: 0.7;">CNPJ 12.345.678/0001-90 • Rua da Tecnologia, 1000, São Paulo -
+                SP</p>
+        </div>
+    </div>
+</body>
+
+</html>
